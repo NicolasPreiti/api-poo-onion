@@ -1,10 +1,9 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from 'typeorm'
-import { BaseModel } from '../../../shared/base/base.model'
+import { BaseEntity, Column, CreateDateColumn, DeleteDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, UpdateDateColumn } from 'typeorm'
 import { UserEntityNotRelations } from '../../domain/user.entity'
 import { RoleModel } from './role.model'
 
 @Entity('user')
-export class UserModel extends BaseModel implements UserEntityNotRelations {
+export class UserModel extends BaseEntity implements UserEntityNotRelations {
   @PrimaryColumn({ type: 'varchar', nullable: false })
     uuid!: string
 
@@ -17,4 +16,13 @@ export class UserModel extends BaseModel implements UserEntityNotRelations {
   @ManyToOne(() => RoleModel, (role) => role.uuid, { nullable: false })
   @JoinColumn({ name: 'role_id' })
     role!: RoleModel
+
+  @CreateDateColumn()
+    created_at!: Date
+
+  @UpdateDateColumn()
+    updated_at!: Date
+
+  @DeleteDateColumn()
+    deleted_at!: Date
 }

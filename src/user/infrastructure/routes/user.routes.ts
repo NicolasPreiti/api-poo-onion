@@ -1,13 +1,11 @@
 import { BaseRouter } from '../../../shared/base/base.router'
-import { AuthMiddleware } from '../../../shared/middlewares/auth.middleware'
+import { AuthMiddleware } from '../../../shared/middlewares'
 import { HttpResponse } from '../../../shared/utils/reponse.util'
 import { UserUseCase } from '../../application/user.use-case'
 import { IUserRepository } from '../../domain/user.repository'
 import { IUserUseCase } from '../../domain/user.use-case'
 import { UserController } from '../controllers/user.controller'
-import { EmailValidator } from '../middlewares/email.middleware'
-import { UserCreateValidator } from '../middlewares/user-create.middleware'
-import { UserUpdateValidator } from '../middlewares/user-update.middleware'
+import { EmailValidator, UserCreateValidator, UserUpdateValidator } from '../middlewares'
 import { MySqlRepository } from '../repository/user.mysql.repository'
 
 export class UserRouter extends BaseRouter<UserController, IUserUseCase, IUserRepository> {

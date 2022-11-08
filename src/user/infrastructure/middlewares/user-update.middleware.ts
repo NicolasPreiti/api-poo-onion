@@ -30,7 +30,7 @@ export class UserUpdateValidator extends BaseMiddleware {
         email: '',
         password: ''
       }
-      const userKeys = Object.keys(user)
+      const entityKeys = Object.keys(user)
       const bodyKeys = Object.keys(req.body)
 
       if (bodyKeys.length === 0) throw new NothingToUpdateError()
@@ -39,8 +39,8 @@ export class UserUpdateValidator extends BaseMiddleware {
       for (const bodyKey of bodyKeys) {
         if (match) break
 
-        for (const userKey of userKeys) {
-          if (bodyKey === userKey) {
+        for (const entityKey of entityKeys) {
+          if (bodyKey === entityKey) {
             match = true
             next()
             break

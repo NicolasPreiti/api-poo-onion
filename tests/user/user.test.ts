@@ -1,6 +1,6 @@
 import request from 'supertest'
-import { Database } from '../../src/db'
-import { Server } from '../../src/server'
+import { Database } from '../../src/application/db'
+import { Server } from '../../src/application/server'
 import { InvalidTokenError } from '../../src/shared/errors/invalid-token-error'
 import { TokenNotProvidedError } from '../../src/shared/errors/token-not-provided.error'
 import { UserEntity, UserEntityNotRelations } from '../../src/user/domain/user.entity'

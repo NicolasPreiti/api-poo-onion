@@ -25,12 +25,13 @@ export class UserController extends BaseController<IUserUseCase> {
       const { email, password }: UserEntity = req.body
       const uuid = this.uuid.generate()
       const encryptedPassword = await this.encrypt.encrypt(password)
+      const roleId = 2
 
       const user = await this.useCase.createUser({
         uuid,
         email,
         password: encryptedPassword,
-        roleId: 2
+        roleId
       })
       const token = this.authentication.generateToken({
         user: {
