@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
-import { RoleModel } from '../user/infrastructure/models/role.model'
-import { UserModel } from '../user/infrastructure/models/user.model'
+import { ProductModel } from '../../product/infrastructure/models/product.model'
+import { RoleModel } from '../../user/infrastructure/models/role.model'
+import { UserModel } from '../../user/infrastructure/models/user.model'
 
 dotenv.config()
 type DbType = 'mysql'
@@ -14,7 +15,7 @@ export const dbConfig = {
   database: process.env.DB_NAME,
   synchronize: true,
   logging: false,
-  entities: [RoleModel, UserModel],
+  entities: [RoleModel, UserModel, ProductModel],
   subscribers: [],
   migrations: []
 }
