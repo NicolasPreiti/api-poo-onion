@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { IHttpResponse } from '../interfaces/http.interface'
+import { DtoMiddleware } from '../middlewares'
 
 export abstract class BaseRouter<Controller, UseCase, Repository> {
   protected _router: Router
@@ -7,6 +8,7 @@ export abstract class BaseRouter<Controller, UseCase, Repository> {
   protected useCase!: UseCase
   protected repository!: Repository
   protected response!: IHttpResponse
+  protected validator!: DtoMiddleware
 
   constructor () {
     this._router = Router()
